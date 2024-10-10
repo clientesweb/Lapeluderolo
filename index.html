@@ -30,6 +30,7 @@
     </style>
 </head>
 <body class="font-sans bg-gray-100 overflow-x-hidden">
+    <!-- Header -->
     <header class="bg-purple-600 text-white fixed w-full z-10 transition-all duration-300" id="header">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
@@ -213,30 +214,58 @@
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-8">
+    <!-- Modern Footer -->
+    <footer class="bg-purple-800 text-white py-10 mt-20">
         <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-between items-center">
-                <div class="w-full md:w-1/3 text-center md:text-left mb-4 md:mb-0">
-                    <h3 class="text-2xl font-bold">La pelu de Rolo</h3>
-                    <p class="mt-2">El mejor cuidado para tu mascota</p>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">La pelu de Rolo</h3>
+                    <p class="text-sm">El mejor cuidado para tu mascota con servicios de calidad garantizados.</p>
                 </div>
-                <div class="w-full md:w-1/3 text-center mb-4 md:mb-0">
-                    <p>&copy; 2023 La pelu de Rolo. Todos los derechos reservados.</p>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Servicios</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#corte-pelo" class="hover:text-purple-300">Corte de Pelo</a></li>
+                        <li><a href="#bano-limpieza" class="hover:text-purple-300">Baño y Limpieza</a></li>
+                        <li><a href="#cuidado-unas" class="hover:text-purple-300">Cuidado de Uñas</a></li>
+                    </ul>
                 </div>
-                <div class="w-full md:w-1/3 text-center md:text-right">
-                    <p>Powered by <a href="https://dualitydomain.com" class="text-purple-400 hover:text-purple-300 transition-colors">Duality Domain</a></p>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Redes Sociales</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-2xl hover:text-purple-300 transition-colors"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl hover:text-purple-300 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-2xl hover:text-purple-300 transition-colors"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contacto</h3>
+                    <p class="text-sm">
+                        <i class="fas fa-phone-alt"></i> +123 456 7890 <br>
+                        <i class="fas fa-envelope"></i> contacto@peluderolo.com
+                    </p>
                 </div>
             </div>
-            <div class="mt-8">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8101263330436!2d-74.07715908523785!3d4.605905443722476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a7eccfe58f%3A0x99cb72b35351cc6a!2sLa%20Pelu%20de%20Rolo!5e0!3m2!1sen!2sus!4v1653664034283!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="text-center border-t border-purple-700 mt-8 pt-4 text-sm">
+                &copy; 2024 La pelu de Rolo. Todos los derechos reservados.
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/1234567890" class="fixed bottom-4 right-4 bg-green-500 text-white rounded-full p-4 shadow-lg hover:bg-green-600 transition-colors hover-grow" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-whatsapp text-2xl"></i>
-    </a>
+    <script>
+        // Swiper JS Init
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
 
-    <script src="script.js"></script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
