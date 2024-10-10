@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     });
 
-    // Efecto de scroll para el header con requestAnimationFrame para optimización
+    // Efecto de scroll para el header
     const header = document.getElementById('header');
     let isScrolling = false;
 
@@ -45,9 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isScrolling) {
             window.requestAnimationFrame(() => {
                 if (window.scrollY > 100) {
-                    header.classList.add('bg-purple-700', 'shadow-md');
+                    header.classList.add('scrolled');
                 } else {
-                    header.classList.remove('bg-purple-700', 'shadow-md');
+                    header.classList.remove('scrolled');
                 }
                 isScrolling = false;
             });
@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const sections = document.querySelectorAll('section');
     const observerOptions = {
         root: null,
-        rootMargin: '0px 0px -10% 0px', // Ajuste para mejor percepción
-        threshold: 0.25 // Solo cuando el 25% de la sección está visible
+        rootMargin: '0px',
+        threshold: 0.1
     };
 
     const sectionObserver = new IntersectionObserver((entries, observer) => {
@@ -81,49 +81,26 @@ document.addEventListener('DOMContentLoaded', function () {
     const mobileMenu = document.getElementById('mobile-menu');
 
     menuToggle.addEventListener('click', () => {
-        const isHidden = mobileMenu.classList.toggle('hidden');
-        if (!isHidden) {
-            mobileMenu.querySelector('a').focus(); // Foco en el primer enlace del menú
-        } else {
-            menuToggle.focus(); // Volver el foco al botón
-        }
+        mobileMenu.classList.toggle('active');
     });
 
     // Cerrar menú móvil al hacer clic en un enlace
     const mobileMenuLinks = mobileMenu.querySelectorAll('a');
     mobileMenuLinks.forEach(link => {
         link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('active');
         });
     });
 
-    // Smooth scroll para los enlaces de navegación con debounce
-    let scrolling = false;
+    // Smooth scroll para los enlaces de navegación
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            if (!scrolling) {
-                scrolling = true;
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                setTimeout(() => scrolling = false, 1000); // 1 segundo de debounce
-            }
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
-
-    // Animación para elementos con la clase hover-grow, solo en dispositivos con hover
-    if (window.matchMedia("(hover: hover)").matches) {
-        const hoverGrowElements = document.querySelectorAll('.hover-grow');
-        hoverGrowElements.forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                element.style.transform = 'scale(1.05)';
-            });
-            element.addEventListener('mouseleave', () => {
-                element.style.transform = 'scale(1)';
-            });
-        });
-    }
 
     // Lazy loading para imágenes
     const lazyImages = document.querySelectorAll('img[data-src]');
@@ -133,12 +110,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 const img = entry.target;
                 img.src = img.dataset.src;
                 img.classList.add('fade-in');
-                lazyImageObserver.unobserve(img);
+                lazyImage
+
+Observer.unobserve(img);
             }
         });
     });
 
     lazyImages.forEach(img => {
         lazyImageObserver.observe(img);
+    });
+
+    // Manejo del formulario de contacto
+    const contactForm = document.querySelector('#contacto form');
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Aquí puedes agregar la lógica para enviar el formulario
+        alert('Gracias por tu mensaje. Te contactaremos pronto!');
+        contactForm.reset();
     });
 });
