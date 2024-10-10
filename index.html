@@ -20,8 +20,11 @@
         .text-secondary { color: var(--secondary-color); }
         .bg-accent { background-color: var(--accent-color); }
         .text-accent { color: var(--accent-color); }
-        .hero-slider, .offer-slider {
+        .hero-slider {
             height: 60vh;
+        }
+        .offer-slider, .ad-slider {
+            height: 40px;
         }
         .gallery-item {
             transition: transform 0.3s ease-in-out;
@@ -35,6 +38,19 @@
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20vh);
+            visibility: hidden;
+            transition: opacity 1200ms ease-out, transform 600ms ease-out,
+                        visibility 1200ms ease-out;
+            will-change: opacity, transform, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
         }
     </style>
 </head>
@@ -72,10 +88,10 @@
             </div>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <a href="#inicio" class="block py-2 px-4 text-gray-700 hover:bg-primary hover:text-white">Inicio</a>
-            <a href="#servicios" class="block py-2 px-4 text-gray-700 hover:bg-primary hover:text-white">Servicios</a>
-            <a href="#galeria" class="block py-2 px-4 text-gray-700 hover:bg-primary hover:text-white">Galería</a>
-            <a href="#contacto" class="block py-2 px-4 text-gray-700 hover:bg-primary hover:text-white">Contacto</a>
+            <a href="#inicio" class="block py-2 px-4 text-center text-gray-700 hover:bg-primary hover:text-white">Inicio</a>
+            <a href="#servicios" class="block py-2 px-4 text-center text-gray-700 hover:bg-primary hover:text-white">Servicios</a>
+            <a href="#galeria" class="block py-2 px-4 text-center text-gray-700 hover:bg-primary hover:text-white">Galería</a>
+            <a href="#contacto" class="block py-2 px-4 text-center text-gray-700 hover:bg-primary hover:text-white">Contacto</a>
         </div>
     </header>
 
@@ -89,8 +105,7 @@
                         <div class="container mx-auto px-6 h-full flex items-center justify-center">
                             <div class="text-center text-white">
                                 <h1 class="text-4xl md:text-6xl font-bold mb-4">Bienvenido a La pelu de Rolo</h1>
-                                <p class="text-xl md:text-2xl mb-8">El mejor cuidado para tu mascota</p>
-                                <a href="#servicios" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition duration-300">Nuestros Servicios</a>
+                                <p class="text-xl md:text-2xl">El mejor cuidado para tu mascota</p>
                             </div>
                         </div>
                     </div>
@@ -99,8 +114,7 @@
                         <div class="container mx-auto px-6 h-full flex items-center justify-center">
                             <div class="text-center text-white">
                                 <h2 class="text-4xl md:text-6xl font-bold mb-4">Servicios de Calidad</h2>
-                                <p class="text-xl md:text-2xl mb-8">Cuidamos a tu mascota como si fuera nuestra</p>
-                                <a href="#contacto" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition duration-300">Contáctanos</a>
+                                <p class="text-xl md:text-2xl">Cuidamos a tu mascota como si fuera nuestra</p>
                             </div>
                         </div>
                     </div>
@@ -109,56 +123,59 @@
                         <div class="container mx-auto px-6 h-full flex items-center justify-center">
                             <div class="text-center text-white">
                                 <h2 class="text-4xl md:text-6xl font-bold mb-4">Experiencia y Profesionalismo</h2>
-                                <p class="text-xl md:text-2xl mb-8">Confía en nuestro equipo de expertos</p>
-                                <a href="#galeria" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition duration-300">Ver Galería</a>
+                                <p class="text-xl md:text-2xl">Confía en nuestro equipo de expertos</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section id="servicios" class="py-20 bg-white">
+        <section id="servicios" class="py-20 bg-white fade-in-section">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Nuestros Servicios</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="service-card bg-gray-50 rounded-lg p-6 shadow-md">
-                        <i class="fas fa-cut text-4xl text-primary mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Corte de pelo</h3>
-                        <p class="text-gray-600 mb-4">Cortes personalizados para cada raza y estilo.</p>
-                        <p class="font-bold text-primary mb-4">Desde $20</p>
-                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20corte%20de%20pelo" class="inline-block bg-accent text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition duration-300">
-                            <i class="fab fa-whatsapp mr-2"></i>Consultar
-                        </a>
+                        <i class="fas fa-cut text-4xl text-primary mb-4 flex justify-center"></i>
+                        <h3 class="text-xl font-semibold mb-2 text-center">Corte de pelo</h3>
+                        <p class="text-gray-600 mb-4 text-center">Cortes personalizados para cada raza y estilo.</p>
+                        <p class="font-bold text-primary mb-4 text-center">Desde $20</p>
+                        <div class="text-center">
+                            <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20corte%20de%20pelo" class="inline-block bg-accent text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition duration-300">
+                                <i class="fab fa-whatsapp mr-2"></i>Consultar
+                            </a>
+                        </div>
                     </div>
                     <div class="service-card bg-gray-50 rounded-lg p-6 shadow-md">
-                        <i class="fas fa-bath text-4xl text-primary mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Baño y limpieza</h3>
-                        <p class="text-gray-600 mb-4">Baños relajantes y limpieza profunda.</p>
-                        <p class="font-bold text-primary mb-4">Desde $15</p>
-                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20baño%20y%20limpieza" class="inline-block bg-accent text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition duration-300">
-                            <i class="fab fa-whatsapp mr-2"></i>Consultar
-                        </a>
+                        <i class="fas fa-bath text-4xl text-primary mb-4 flex justify-center"></i>
+                        <h3 class="text-xl font-semibold mb-2 text-center">Baño y limpieza</h3>
+                        <p class="text-gray-600 mb-4 text-center">Baños relajantes y limpieza profunda.</p>
+                        <p class="font-bold text-primary mb-4 text-center">Desde $15</p>
+                        <div class="text-center">
+                            <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20baño%20y%20limpieza" class="inline-block bg-accent text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition duration-300">
+                                <i class="fab fa-whatsapp mr-2"></i>Consultar
+                            </a>
+                        </div>
                     </div>
                     <div class="service-card bg-gray-50 rounded-lg p-6 shadow-md">
-                        <i class="fas fa-paw text-4xl text-primary mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Cuidado de uñas</h3>
-                        <p class="text-gray-600 mb-4">Corte y limado de uñas para la comodidad de tu mascota.</p>
-                        <p class="font-bold text-primary mb-4">Desde $10</p>
-                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20cuidado%20de%20uñas" class="inline-block bg-accent text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition duration-300">
-                            <i class="fab fa-whatsapp mr-2"></i>Consultar
-                        </a>
+                        <i class="fas fa-paw text-4xl text-primary mb-4 flex justify-center"></i>
+                        <h3 class="text-xl font-semibold mb-2 text-center">Cuidado de uñas</h3>
+                        <p class="text-gray-600 mb-4 text-center">Corte y limado de uñas para la comodidad de tu mascota.</p>
+                        <p class="font-bold text-primary mb-4 text-center">Desde $10</p>
+                        <div class="text-center">
+                            <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20cuidado%20de%20uñas" class="inline-block bg-accent text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition duration-300">
+                                <i class="fab fa-whatsapp mr-2"></i>Consultar
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Gallery Section -->
-        <section id="galeria" class="py-20 bg-gray-100">
+        <section id="galeria" class="py-20 bg-gray-100 fade-in-section">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Nuestra Galería</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -169,7 +186,7 @@
                         <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Perro 2" class="w-full h-64 object-cover rounded-lg shadow-md">
                     </div>
                     <div class="gallery-item">
-                        <img  src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Perro 3" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        <img   src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Perro 3" class="w-full h-64 object-cover rounded-lg shadow-md">
                     </div>
                     <div class="gallery-item">
                         <img src="https://images.unsplash.com/photo-1605244863941-3a3ed921c2b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 4" class="w-full h-64 object-cover rounded-lg shadow-md">
@@ -185,7 +202,7 @@
         </section>
 
         <!-- Contact Section with Map -->
-        <section id="contacto" class="py-20 bg-white">
+        <section id="contacto" class="py-20 bg-white fade-in-section">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Contáctanos</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -203,7 +220,9 @@
                                 <label for="mensaje" class="block mb-2 font-medium text-gray-700">Mensaje</label>
                                 <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-md font-semibold hover:bg-opacity-90 transition duration-300">Enviar mensaje</button>
+                            <div class="text-center">
+                                <button type="submit" class="bg-primary text-white px-6 py-3 rounded-md font-semibold hover:bg-opacity-90 transition duration-300">Enviar mensaje</button>
+                            </div>
                         </form>
                     </div>
                     <div>
@@ -214,11 +233,30 @@
         </section>
 
         <!-- Advertising Banner -->
-        <section class="py-10 bg-secondary">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-primary">¡Oferta Especial!</h2>
-                <p class="text-lg mb-6">Obtén un 15% de descuento en tu primera visita. ¡Reserva ahora!</p>
-                <a href="#contacto" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition duration-300">Reservar Cita</a>
+        <section class="py-10 bg-secondary fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="swiper-container ad-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="text-center">
+                                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-primary">¡Oferta Especial!</h2>
+                                <p class="text-lg mb-6">Obtén un 15% de descuento en tu primera visita. ¡Reserva ahora!</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="text-center">
+                                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-primary">Nuevo Servicio</h2>
+                                <p class="text-lg mb-6">Prueba nuestro nuevo servicio de spa para mascotas. ¡Tu peludo lo merece!</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="text-center">
+                                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-primary">Paquete Familiar</h2>
+                                <p class="text-lg mb-6">Trae a todos tus peludos y obtén un 20% de descuento en el total.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -226,11 +264,11 @@
     <footer class="bg-gray-800 text-white py-10">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
+                <div class="text-center md:text-left">
                     <h3 class="text-xl font-bold mb-4">La pelu de Rolo</h3>
                     <p class="text-sm">El mejor cuidado para tu mascota con servicios de calidad garantizados.</p>
                 </div>
-                <div>
+                <div class="text-center md:text-left">
                     <h3 class="text-xl font-bold mb-4">Servicios</h3>
                     <ul class="space-y-2 text-sm">
                         <li><a href="#servicios" class="hover:text-primary transition duration-300">Corte de Pelo</a></li>
@@ -238,7 +276,7 @@
                         <li><a href="#servicios" class="hover:text-primary transition duration-300">Cuidado de Uñas</a></li>
                     </ul>
                 </div>
-                <div>
+                <div class="text-center md:text-left">
                     <h3 class="text-xl font-bold mb-4">Contacto</h3>
                     <p class="text-sm">
                         <i class="fas fa-map-marker-alt mr-2"></i> Av. Rivadavia 5000, CABA<br>
@@ -246,9 +284,9 @@
                         <i class="fas fa-envelope mr-2"></i> info@lapeluderolo.com
                     </p>
                 </div>
-                <div>
+                <div class="text-center md:text-left">
                     <h3 class="text-xl font-bold mb-4">Síguenos</h3>
-                    <div class="flex space-x-4">
+                    <div class="flex justify-center md:justify-start space-x-4">
                         <a href="#" class="text-white hover:text-primary transition duration-300"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-white hover:text-primary transition duration-300"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="text-white hover:text-primary transition duration-300"><i class="fab fa-twitter"></i></a>
@@ -274,10 +312,6 @@
                 el: '.swiper-pagination',
                 clickable: true,
             },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
         });
 
         // Offer Slider
@@ -286,7 +320,16 @@
             autoplay: {
                 delay: 3000,
             },
-            direction: 'vertical',
+            direction: 'horizontal',
+        });
+
+        // Ad Slider
+        new Swiper('.ad-slider', {
+            loop: true,
+            autoplay: {
+                delay: 4000,
+            },
+            direction: 'horizontal',
         });
 
         // Mobile Menu Toggle
@@ -313,6 +356,28 @@
             e.preventDefault();
             alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
             contactForm.reset();
+        });
+
+        // Scroll Animation
+        const faders = document.querySelectorAll('.fade-in-section');
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -100px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('is-visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
         });
     </script>
 </body>
