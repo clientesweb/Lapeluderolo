@@ -1,71 +1,81 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La pelu de Rolo</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        .swiper-container {
+            width: 100%;
+            height: 100vh;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
 </head>
-<body class="font-sans bg-gray-100 overflow-x-hidden">
-    <header id="header" class="fixed w-full z-10 transition-all duration-300">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<body class="font-sans bg-gray-100">
+    <header class="bg-purple-600 text-white fixed w-full z-10">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="/placeholder.svg" alt="Logo" class="h-10 w-10 mr-2">
-                <h1 class="text-2xl font-bold text-white">La pelu de Rolo</h1>
+                <img src="img/logo.png" alt="Logo de La pelu de Rolo" class="h-10 w-10 mr-3">
+                <a href="#" class="text-2xl font-bold">La pelu de Rolo</a>
             </div>
-            <nav class="hidden md:flex items-center space-x-4">
-                <a href="#inicio" class="text-white hover:text-purple-200 transition-colors">Inicio</a>
-                <a href="#servicios" class="text-white hover:text-purple-200 transition-colors">Servicios</a>
-                <a href="#galeria" class="text-white hover:text-purple-200 transition-colors">Galería</a>
-                <a href="#resenas" class="text-white hover:text-purple-200 transition-colors">Reseñas</a>
-                <a href="#contacto" class="text-white hover:text-purple-200 transition-colors">Contacto</a>
-                <div class="flex space-x-2">
-                    <a href="#" class="text-xl text-white hover:text-purple-200 transition-colors"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-xl text-white hover:text-purple-200 transition-colors"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-xl text-white hover:text-purple-200 transition-colors"><i class="fab fa-twitter"></i></a>
-                </div>
-            </nav>
-            <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-        <nav id="mobile-menu" class="hidden md:hidden bg-purple-700 p-4">
-            <ul class="space-y-2">
-                <li><a href="#inicio" class="block text-white hover:text-purple-200 transition-colors">Inicio</a></li>
-                <li><a href="#servicios" class="block text-white hover:text-purple-200 transition-colors">Servicios</a></li>
-                <li><a href="#galeria" class="block text-white hover:text-purple-200 transition-colors">Galería</a></li>
-                <li><a href="#resenas" class="block text-white hover:text-purple-200 transition-colors">Reseñas</a></li>
-                <li><a href="#contacto" class="block text-white hover:text-purple-200 transition-colors">Contacto</a></li>
-            </ul>
-            <div class="flex space-x-4 mt-4">
-                <a href="#" class="text-xl text-white hover:text-purple-200 transition-colors"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="text-xl text-white hover:text-purple-200 transition-colors"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-xl text-white hover:text-purple-200 transition-colors"><i class="fab fa-twitter"></i></a>
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#inicio" class="hover:text-purple-200">Inicio</a>
+                <a href="#servicios" class="hover:text-purple-200">Servicios</a>
+                <a href="#galeria" class="hover:text-purple-200">Galería</a>
+                <a href="#contacto" class="hover:text-purple-200">Contacto</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-purple-700 p-4">
+            <a href="#inicio" class="block py-2 text-white hover:text-purple-200">Inicio</a>
+            <a href="#servicios" class="block py-2 text-white hover:text-purple-200">Servicios</a>
+            <a href="#galeria" class="block py-2 text-white hover:text-purple-200">Galería</a>
+            <a href="#contacto" class="block py-2 text-white hover:text-purple-200">Contacto</a>
+        </div>
     </header>
 
     <main>
-        <section id="inicio" class="pt-20">
-            <div class="swiper-container h-screen">
+        <section id="inicio" class="pt-16">
+            <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');">
-                        <div class="container mx-auto px-4 h-full flex items-center justify-center">
-                            <div class="text-white text-center">
-                                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate-fadeIn">Bienvenido a La pelu de Rolo</h2>
-                                <p class="text-lg md:text-xl mb-8 animate-fadeIn">El mejor cuidado para tu mascota</p>
-                                <a href="#contacto" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition-colors animate-fadeIn hover-grow">Reserva ahora</a>
+                    <div class="swiper-slide">
+                        <img src="img/slide1.jpg" alt="Perro feliz después de un corte">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <h1 class="text-4xl md:text-6xl font-bold mb-4">Bienvenido a La pelu de Rolo</h1>
+                                <p class="text-xl md:text-2xl mb-8">El mejor cuidado para tu mascota</p>
+                                <a href="#contacto" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300">Reserva ahora</a>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80');">
-                        <div class="container mx-auto px-4 h-full flex items-center justify-center">
-                            <div class="text-white text-center">
-                                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate-fadeIn">Servicios de calidad</h2>
-                                <p class="text-lg md:text-xl mb-8 animate-fadeIn">Cuidamos a tu mascota como si fuera nuestra</p>
-                                <a href="#servicios" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition-colors animate-fadeIn hover-grow">Ver servicios</a>
+                    <div class="swiper-slide">
+                        <img src="img/slide2.jpg" alt="Perro recibiendo un baño">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <h2 class="text-4xl md:text-6xl font-bold mb-4">Servicios de calidad</h2>
+                                <p class="text-xl md:text-2xl mb-8">Cuidamos a tu mascota como si fuera nuestra</p>
+                                <a href="#servicios" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300">Ver servicios</a>
                             </div>
                         </div>
                     </div>
@@ -74,34 +84,34 @@
             </div>
         </section>
 
-        <section id="servicios" class="py-20 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-12 animate-fadeIn">Nuestros Servicios</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition-transform hover:scale-105 animate-fadeIn">
+        <section id="servicios" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl">
                         <i class="fas fa-cut text-4xl text-purple-600 mb-4"></i>
-                        <h3 class="text-2xl font-semibold mb-2">Corte de pelo</h3>
+                        <h3 class="text-xl font-semibold mb-2">Corte de pelo</h3>
                         <p class="mb-4">Cortes personalizados para cada raza y estilo.</p>
                         <p class="font-bold mb-4">Desde $20</p>
-                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20corte%20de%20pelo" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition-colors inline-block hover-grow" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20corte%20de%20pelo" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition duration-300 inline-block">
                             <i class="fab fa-whatsapp mr-2"></i>Consultar
                         </a>
                     </div>
-                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition-transform hover:scale-105 animate-fadeIn">
+                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl">
                         <i class="fas fa-bath text-4xl text-purple-600 mb-4"></i>
-                        <h3 class="text-2xl font-semibold mb-2">Baño y limpieza</h3>
+                        <h3 class="text-xl font-semibold mb-2">Baño y limpieza</h3>
                         <p class="mb-4">Baños relajantes y limpieza profunda.</p>
                         <p class="font-bold mb-4">Desde $15</p>
-                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20baño%20y%20limpieza" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition-colors inline-block hover-grow" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20baño%20y%20limpieza" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition duration-300 inline-block">
                             <i class="fab fa-whatsapp mr-2"></i>Consultar
                         </a>
                     </div>
-                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition-transform hover:scale-105 animate-fadeIn">
+                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl">
                         <i class="fas fa-paw text-4xl text-purple-600 mb-4"></i>
-                        <h3 class="text-2xl font-semibold mb-2">Cuidado de uñas</h3>
+                        <h3 class="text-xl font-semibold mb-2">Cuidado de uñas</h3>
                         <p class="mb-4">Corte y limado de uñas para la comodidad de tu mascota.</p>
                         <p class="font-bold mb-4">Desde $10</p>
-                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20cuidado%20de%20uñas" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition-colors inline-block hover-grow" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20cuidado%20de%20uñas" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition duration-300 inline-block">
                             <i class="fab fa-whatsapp mr-2"></i>Consultar
                         </a>
                     </div>
@@ -109,54 +119,25 @@
             </div>
         </section>
 
-        <section id="galeria" class="py-20 bg-gray-100">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-12 animate-fadeIn">Galería de trabajos</h2>
+        <section id="galeria" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Galería de trabajos</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" alt="Perro 1" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow animate-fadeIn hover-grow">
-                    <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Perro 2" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow animate-fadeIn hover-grow">
-                    <img src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Perro 3" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow animate-fadeIn hover-grow">
-                    <img src="https://images.unsplash.com/photo-1605244863941-3a3ed921c2b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 4" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow animate-fadeIn hover-grow">
-                    <img src="https://images.unsplash.com/photo-1635499829675-35cd8944fa7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 5" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow animate-fadeIn hover-grow">
-                    <img src="https://images.unsplash.com/photo-1626316663963-f6b3bba3b25d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 6" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow animate-fadeIn hover-grow">
+                    <img src="img/galeria1.jpg" alt="Perro 1" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="img/galeria2.jpg" alt="Perro 2" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="img/galeria3.jpg" alt="Perro 3" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="img/galeria4.jpg" alt="Perro 4" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="img/galeria5.jpg" alt="Perro 5" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="img/galeria6.jpg" alt="Perro 6" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
                 </div>
             </div>
         </section>
 
-        <section id="resenas" class="py-20 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-12 animate-fadeIn">Reseñas de  clientes</h2>
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="bg-purple-100 p-6 rounded-lg shadow-lg">
-                                <p class="mb-4">"Excelente servicio, mi perro quedó hermoso y muy feliz. ¡Volveremos pronto!"</p>
-                                <p class="font-semibold">- María G.</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="bg-purple-100 p-6 rounded-lg shadow-lg">
-                                <p class="mb-4">"El mejor lugar para el cuidado de mi mascota. Profesionales y amables."</p>
-                                <p class="font-semibold">- Carlos R.</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="bg-purple-100 p-6 rounded-lg shadow-lg">
-                                <p class="mb-4">"Siempre confío en La pelu de Rolo para el cuidado de mi perrito. ¡Los recomiendo!"</p>
-                                <p class="font-semibold">- Ana L.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contacto" class="py-20 bg-purple-600 text-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-12 animate-fadeIn">Contáctanos</h2>
+        <section id="contacto" class="py-16 bg-purple-600 text-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Contáctanos</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="animate-fadeIn">
+                    <div>
                         <h3 class="text-2xl font-semibold mb-4">Información de contacto</h3>
                         <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Calle Principal 123, Ciudad</p>
                         <p class="mb-2"><i class="fas fa-phone mr-2"></i> +1 234 567 890</p>
@@ -164,27 +145,27 @@
                         <div class="mt-6">
                             <h4 class="text-xl font-semibold mb-2">Síguenos en redes sociales</h4>
                             <div class="flex space-x-4">
-                                <a href="#" class="text-2xl hover:text-purple-200 transition-colors"><i class="fab fa-facebook"></i></a>
-                                <a href="#" class="text-2xl hover:text-purple-200 transition-colors"><i class="fab fa-instagram"></i></a>
-                                <a href="#" class="text-2xl hover:text-purple-200 transition-colors"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="text-2xl hover:text-purple-200 transition duration-300"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="text-2xl hover:text-purple-200 transition duration-300"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="text-2xl hover:text-purple-200 transition duration-300"><i class="fab fa-twitter"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="animate-fadeIn">
+                    <div>
                         <form>
                             <div class="mb-4">
                                 <label for="nombre" class="block mb-2">Nombre</label>
-                                <input type="text" id="nombre" name="nombre" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" required>
+                                <input type="text" id="nombre" name="nombre" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-purple-500" required>
                             </div>
                             <div class="mb-4">
                                 <label for="email" class="block mb-2">Email</label>
-                                <input type="email" id="email" name="email" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" required>
+                                <input type="email" id="email" name="email" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-purple-500" required>
                             </div>
                             <div class="mb-4">
                                 <label for="mensaje" class="block mb-2">Mensaje</label>
-                                <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" required></textarea>
+                                <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-purple-500" required></textarea>
                             </div>
-                            <button type="submit" class="bg-white text-purple-600 px-6 py-3 rounded-full hover:bg-purple-100 transition-colors hover-grow">Enviar mensaje</button>
+                            <button type="submit" class="bg-white text-purple-600 px-6 py-3 rounded-full hover:bg-purple-100 transition duration-300">Enviar mensaje</button>
                         </form>
                     </div>
                 </div>
@@ -192,8 +173,8 @@
         </section>
     </main>
 
-    <footer class="bg-purple-800 text-white py-10">
-        <div class="container mx-auto px-4">
+    <footer class="bg-purple-800 text-white py-8">
+        <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4">La pelu de Rolo</h3>
@@ -202,17 +183,17 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Servicios</h3>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#corte-pelo" class="hover:text-purple-300">Corte de Pelo</a></li>
-                        <li><a href="#bano-limpieza" class="hover:text-purple-300">Baño y Limpieza</a></li>
-                        <li><a href="#cuidado-unas" class="hover:text-purple-300">Cuidado de Uñas</a></li>
+                        <li><a href="#servicios" class="hover:text-purple-300">Corte de Pelo</a></li>
+                        <li><a href="#servicios" class="hover:text-purple-300">Baño y Limpieza</a></li>
+                        <li><a href="#servicios" class="hover:text-purple-300">Cuidado de Uñas</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Redes Sociales</h3>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-2xl hover:text-purple-300 transition-colors"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-2xl hover:text-purple-300 transition-colors"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-2xl hover:text-purple-300 transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#"   class="text-2xl hover:text-purple-300 transition duration-300"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl hover:text-purple-300 transition duration-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-2xl hover:text-purple-300 transition duration-300"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div>
@@ -230,6 +211,40 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        // Inicializar Swiper
+        var swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 5000,
+            },
+        });
+
+        // Menú móvil
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
