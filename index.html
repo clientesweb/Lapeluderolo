@@ -4,67 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La pelu de Rolo</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
-    <style>
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        .float { animation: float 3s ease-in-out infinite; }
-        .animate-fadeIn { animation: fadeIn 1s ease-out; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-slideIn { animation: slideIn 0.5s ease-out; }
-        @keyframes slideIn {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(0); }
-        }
-        .hover-grow { transition: transform 0.3s ease; }
-        .hover-grow:hover { transform: scale(1.05); }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="font-sans bg-gray-100 overflow-x-hidden">
-    <!-- Header -->
-    <header class="bg-purple-600 text-white fixed w-full z-10 transition-all duration-300" id="header">
+    <header id="header" class="fixed w-full z-10 transition-all duration-300">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
                 <img src="/placeholder.svg" alt="Logo" class="h-10 w-10 mr-2">
-                <h1 class="text-2xl font-bold">La pelu de Rolo</h1>
+                <h1 class="text-2xl font-bold text-white">La pelu de Rolo</h1>
             </div>
             <nav class="hidden md:flex items-center space-x-4">
-                <a href="#inicio" class="hover:text-purple-200 transition-colors">Inicio</a>
-                <a href="#servicios" class="hover:text-purple-200 transition-colors">Servicios</a>
-                <a href="#galeria" class="hover:text-purple-200 transition-colors">Galería</a>
-                <a href="#resenas" class="hover:text-purple-200 transition-colors">Reseñas</a>
-                <a href="#contacto" class="hover:text-purple-200 transition-colors">Contacto</a>
+                <a href="#inicio" class="text-white hover:text-purple-200 transition-colors">Inicio</a>
+                <a href="#servicios" class="text-white hover:text-purple-200 transition-colors">Servicios</a>
+                <a href="#galeria" class="text-white hover:text-purple-200 transition-colors">Galería</a>
+                <a href="#resenas" class="text-white hover:text-purple-200 transition-colors">Reseñas</a>
+                <a href="#contacto" class="text-white hover:text-purple-200 transition-colors">Contacto</a>
                 <div class="flex space-x-2">
-                    <a href="#" class="text-xl hover:text-purple-200 transition-colors"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-xl hover:text-purple-200 transition-colors"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-xl hover:text-purple-200 transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-xl text-white hover:text-purple-200 transition-colors"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-xl text-white hover:text-purple-200 transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-xl text-white hover:text-purple-200 transition-colors"><i class="fab fa-twitter"></i></a>
                 </div>
             </nav>
             <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
-        <nav id="mobile-menu" class="hidden md:hidden bg-purple-700 p-4 animate-slideIn">
+        <nav id="mobile-menu" class="hidden md:hidden bg-purple-700 p-4">
             <ul class="space-y-2">
-                <li><a href="#inicio" class="block hover:text-purple-200 transition-colors">Inicio</a></li>
-                <li><a href="#servicios" class="block hover:text-purple-200 transition-colors">Servicios</a></li>
-                <li><a href="#galeria" class="block hover:text-purple-200 transition-colors">Galería</a></li>
-                <li><a href="#resenas" class="block hover:text-purple-200 transition-colors">Reseñas</a></li>
-                <li><a href="#contacto" class="block hover:text-purple-200 transition-colors">Contacto</a></li>
+                <li><a href="#inicio" class="block text-white hover:text-purple-200 transition-colors">Inicio</a></li>
+                <li><a href="#servicios" class="block text-white hover:text-purple-200 transition-colors">Servicios</a></li>
+                <li><a href="#galeria" class="block text-white hover:text-purple-200 transition-colors">Galería</a></li>
+                <li><a href="#resenas" class="block text-white hover:text-purple-200 transition-colors">Reseñas</a></li>
+                <li><a href="#contacto" class="block text-white hover:text-purple-200 transition-colors">Contacto</a></li>
             </ul>
-            <div class="flex space-x-2 mt-4">
-                <a href="#" class="text-xl hover:text-purple-200 transition-colors"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="text-xl hover:text-purple-200 transition-colors"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-xl hover:text-purple-200 transition-colors"><i class="fab fa-twitter"></i></a>
+            <div class="flex space-x-4 mt-4">
+                <a href="#" class="text-xl text-white hover:text-purple-200 transition-colors"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-xl text-white hover:text-purple-200 transition-colors"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-xl text-white hover:text-purple-200 transition-colors"><i class="fab fa-twitter"></i></a>
             </div>
         </nav>
     </header>
@@ -140,14 +118,14 @@
                     <img src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Perro 3" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow animate-fadeIn hover-grow">
                     <img src="https://images.unsplash.com/photo-1605244863941-3a3ed921c2b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 4" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow animate-fadeIn hover-grow">
                     <img src="https://images.unsplash.com/photo-1635499829675-35cd8944fa7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 5" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow animate-fadeIn hover-grow">
-                    <img  src="https://images.unsplash.com/photo-1626316663963-f6b3bba3b25d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 6" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow animate-fadeIn hover-grow">
+                    <img src="https://images.unsplash.com/photo-1626316663963-f6b3bba3b25d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 6" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow animate-fadeIn hover-grow">
                 </div>
             </div>
         </section>
 
         <section id="resenas" class="py-20 bg-white">
             <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-12 animate-fadeIn">Reseñas de clientes</h2>
+                <h2 class="text-4xl font-bold text-center mb-12 animate-fadeIn">Reseñas de  clientes</h2>
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
@@ -214,8 +192,7 @@
         </section>
     </main>
 
-    <!-- Modern Footer -->
-    <footer class="bg-purple-800 text-white py-10 mt-20">
+    <footer class="bg-purple-800 text-white py-10">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
@@ -242,7 +219,7 @@
                     <h3 class="text-xl font-bold mb-4">Contacto</h3>
                     <p class="text-sm">
                         <i class="fas fa-phone-alt"></i> +123 456 7890 <br>
-                        <i class="fas fa-envelope"></i> contacto@peluderolo.com
+                        <i class="fas fa-envelope"></i> info@lapeluderolo.com
                     </p>
                 </div>
             </div>
@@ -252,20 +229,7 @@
         </div>
     </footer>
 
-    <script>
-        // Swiper JS Init
-        const swiper = new Swiper('.swiper-container', {
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
-
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
