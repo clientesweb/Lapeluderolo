@@ -3,203 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La pelu de Rolo</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <title>La pelu de Rolo - Peluquería Canina de Lujo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
     <style>
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        body {
+            font-family: 'Poppins', sans-serif;
         }
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
+        .bg-gradient {
+            background: linear-gradient(90deg, #8B5CF6, #D946EF);
         }
-        .swiper-container {
-            width: 100%;
-            height: 100vh;
-        }
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .swiper-slide img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        @media (max-width: 640px) {
-            .swiper-container {
-                height: 50vh;
-            }
-        }
-        .nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #fff;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, #8B5CF6, #D946EF);
         }
     </style>
 </head>
-<body class="font-sans bg-gray-100">
-    <header class="bg-purple-600 text-white fixed w-full z-10 transition-all duration-300" id="header">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="img/logo.png" alt="Logo de La pelu de Rolo" class="h-10 w-10 mr-3">
-                <a href="#" class="text-2xl font-bold">La pelu de Rolo</a>
-            </div>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#inicio" class="nav-link hover:text-purple-200 transition-colors duration-300">Inicio</a>
-                <a href="#servicios" class="nav-link hover:text-purple-200 transition-colors duration-300">Servicios</a>
-                <a href="#galeria" class="nav-link hover:text-purple-200 transition-colors duration-300">Galería</a>
-                <a href="#contacto" class="nav-link hover:text-purple-200 transition-colors duration-300">Contacto</a>
-            </div>
-            <div class="md:hidden">
-                <button id="menu-toggle" class="text-white focus:outline-none">
-                    <i class="fas fa-bars"></i>
+<body class="bg-gray-50">
+    <header class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-purple-600">La pelu de Rolo</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#inicio" class="text-gray-700 hover:text-purple-600 transition duration-300">Inicio</a>
+                    <a href="#servicios" class="text-gray-700 hover:text-purple-600 transition duration-300">Servicios</a>
+                    <a href="#galeria" class="text-gray-700 hover:text-purple-600 transition duration-300">Galería</a>
+                    <a href="#contacto" class="text-gray-700 hover:text-purple-600 transition duration-300">Contacto</a>
+                </div>
+                <button id="menu-toggle" class="md:hidden text-gray-700 hover:text-purple-600 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
                 </button>
             </div>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden bg-purple-700 p-4">
-            <a href="#inicio" class="block py-2 text-white hover:text-purple-200 transition-colors duration-300">Inicio</a>
-            <a href="#servicios" class="block py-2 text-white hover:text-purple-200 transition-colors duration-300">Servicios</a>
-            <a href="#galeria" class="block py-2 text-white hover:text-purple-200 transition-colors duration-300">Galería</a>
-            <a href="#contacto" class="block py-2 text-white hover:text-purple-200 transition-colors duration-300">Contacto</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute top-full left-0 right-0">
+            <a href="#inicio" class="block py-2 px-4 text-gray-700 hover:bg-purple-100">Inicio</a>
+            <a href="#servicios" class="block py-2 px-4 text-gray-700 hover:bg-purple-100">Servicios</a>
+            <a href="#galeria" class="block py-2 px-4 text-gray-700 hover:bg-purple-100">Galería</a>
+            <a href="#contacto" class="block py-2 px-4 text-gray-700 hover:bg-purple-100">Contacto</a>
         </div>
     </header>
 
     <main>
-        <section id="inicio" class="pt-16 md:pt-0">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="img/slide1.jpg" alt="Perro feliz después de un corte" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                            <div class="text-center text-white px-4">
-                                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 fade-in-up">Bienvenido a La pelu de Rolo</h1>
-                                <p class="text-lg md:text-xl lg:text-2xl mb-8 fade-in-up">El mejor cuidado para tu mascota</p>
-                                <a href="#contacto" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300 fade-in-up inline-block">Reserva ahora</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/slide2.jpg" alt="Perro recibiendo un baño" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                            <div class="text-center text-white px-4">
-                                <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 fade-in-up">Servicios de calidad</h2>
-                                <p class="text-lg md:text-xl lg:text-2xl mb-8 fade-in-up">Cuidamos a tu mascota como si fuera nuestra</p>
-                                <a href="#servicios" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300 fade-in-up inline-block">Ver servicios</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
+        <section id="inicio" class="min-h-screen flex items-center justify-center bg-gradient text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Bienvenido a La pelu de Rolo</h1>
+                <p class="text-xl md:text-2xl mb-8">Donde tu mascota recibe el cuidado que merece</p>
+                <a href="#servicios" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">Descubre nuestros servicios</a>
             </div>
         </section>
 
-        <section id="servicios" class="py-16 bg-white">
+        <section id="servicios" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient">Nuestros Servicios</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl transform hover:-translate-y-2">
-                        <i class="fas fa-cut text-4xl text-purple-600 mb-4"></i>
+                    <div class="bg-gray-50 rounded-lg p-6 shadow-lg transition duration-300 hover:shadow-xl">
+                        <svg class="w-12 h-12 text-purple-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3a4 4 0 100 8 4 4 0 000-8z"></path>
+                        </svg>
                         <h3 class="text-xl font-semibold mb-2">Corte de pelo</h3>
-                        <p class="mb-4">Cortes personalizados para cada raza y estilo.</p>
-                        <p class="font-bold mb-4">Desde $20</p>
-                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20corte%20de%20pelo" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition duration-300 inline-block">
-                            <i class="fab fa-whatsapp mr-2"></i>Consultar
+                        <p class="text-gray-600 mb-4">Cortes personalizados para cada raza y estilo.</p>
+                        <p class="font-bold text-purple-600 mb-4">Desde $20</p>
+                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20corte%20de%20pelo" class="inline-block bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition duration-300">
+                            <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.917 1.052 5.591 2.795 7.673L.962 23.469l3.796-.836C6.92 23.838 9.388 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.412 0-4.706-.537-6.772-1.503l-3.087.68.694-3.087C1.8 16.706 1 14.412 1 12 1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11zm5.369-14.709l-1.414-1.414-5.295 5.295-2.295-2.295-1.414 1.414 3.709 3.709 6.709-6.709z"/>
+                            </svg>
+                            Consultar
                         </a>
                     </div>
-                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl transform hover:-translate-y-2">
-                        <i class="fas fa-bath text-4xl text-purple-600 mb-4"></i>
+                    <div class="bg-gray-50 rounded-lg p-6 shadow-lg transition duration-300 hover:shadow-xl">
+                        <svg class="w-12 h-12 text-purple-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
                         <h3 class="text-xl font-semibold mb-2">Baño y limpieza</h3>
-                        <p class="mb-4">Baños relajantes y limpieza profunda.</p>
-                        <p class="font-bold mb-4">Desde $15</p>
-                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20baño%20y%20limpieza" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition duration-300 inline-block">
-                            <i class="fab fa-whatsapp mr-2"></i>Consultar
+                        <p class="text-gray-600 mb-4">Baños relajantes y limpieza profunda.</p>
+                        <p class="font-bold text-purple-600 mb-4">Desde $15</p>
+                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20baño%20y%20limpieza" class="inline-block bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition duration-300">
+                            <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.917 1.052 5.591 2.795 7.673L.962 23.469l3.796-.836C6.92 23.838 9.388 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.412 0-4.706-.537-6.772-1.503l-3.087.68.694-3.087C1.8 16.706 1 14.412 1 12 1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11zm5.369-14.709l-1.414-1.414-5.295 5.295-2.295-2.295-1.414 1.414 3.709 3.709 6.709-6.709z"/>
+                            </svg>
+                            Consultar
                         </a>
                     </div>
-                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl transform hover:-translate-y-2">
-                        <i class="fas fa-paw text-4xl text-purple-600 mb-4"></i>
+                    <div class="bg-gray-50 rounded-lg p-6 shadow-lg transition duration-300 hover:shadow-xl">
+                        <svg class="w-12 h-12 text-purple-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
                         <h3 class="text-xl font-semibold mb-2">Cuidado de uñas</h3>
-                        <p class="mb-4">Corte y limado de uñas para la comodidad de tu mascota.</p>
-                        <p class="font-bold mb-4">Desde $10</p>
-                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20cuidado%20de%20uñas" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition duration-300 inline-block">
-                            <i class="fab fa-whatsapp mr-2"></i>Consultar
+                        <p class="text-gray-600 mb-4">Corte y limado de uñas para la comodidad de tu mascota.</p>
+                        <p class="font-bold text-purple-600 mb-4">Desde $10</p>
+                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20cuidado%20de%20uñas" class="inline-block bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition duration-300">
+                            <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.917 1.052 5.591 2.795 7.673L.962 23.469l3.796-.836C6.92 23.838 9.388 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.412 0-4.706-.537-6.772-1.503l-3.087.68.694-3.087C1.8 16.706 1 14.412 1 12 1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11zm5.369-14.709l-1.414-1.414-5.295 5.295-2.295-2.295-1.414 1.414 3.709 3.709 6.709-6.709z"/>
+                            </svg>
+                            Consultar
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="galeria" class="py-16 bg-gray-100">
+        <section id="galeria" class="py-20 bg-gray-100">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Galería de trabajos</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient">Nuestra Galería</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    <img src="img/galeria1.jpg" alt="Perro 1" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
-                    <img src="img/galeria2.jpg" alt="Perro 2" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
-                    <img src="img/galeria3.jpg" alt="Perro 3" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
-                    <img src="img/galeria4.jpg" alt="Perro 4" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
-                    <img src="img/galeria5.jpg" alt="Perro 5" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
-                    <img src="img/galeria6.jpg" alt="Perro 6" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" alt="Perro 1" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Perro 2" class="w-full  h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Perro 3" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1605244863941-3a3ed921c2b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 4" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1635499829675-35cd8944fa7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 5" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1626316663963-f6b3bba3b25d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 6" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
                 </div>
             </div>
         </section>
 
-        <section id="contacto" class="py-16 bg-purple-600 text-white">
+        <section id="contacto" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Contáctanos</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient">Contáctanos</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
                         <h3 class="text-2xl font-semibold mb-4">Información de contacto</h3>
-                        <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Calle Principal 123, Ciudad</p>
-                        <p class="mb-2"><i class="fas fa-phone mr-2"></i> +1 234 567 890</p>
-                        <p class="mb-2"><i class="fas fa-envelope mr-2"></i> info@lapeluderolo.com</p>
+                        <p class="mb-2 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Calle Principal 123, Ciudad
+                        </p>
+                        <p class="mb-2 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            +1 234 567 890
+                        </p>
+                        <p class="mb-2 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            info@lapeluderolo.com
+                        </p>
                         <div class="mt-6">
                             <h4 class="text-xl font-semibold mb-2">Síguenos en redes sociales</h4>
                             <div class="flex space-x-4">
-                                <a href="#" class="text-2xl hover:text-purple-200 transition duration-300"><i class="fab fa-facebook"></i></a>
-                                <a href="#" class="text-2xl hover:text-purple-200 transition duration-300"><i class="fab fa-instagram"></i></a>
-                                <a href="#" class="text-2xl hover:text-purple-200 transition duration-300"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition duration-300">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition duration-300">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition duration-300">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <form id="contact-form">
-                            <div class="mb-4">
-                                <label for="nombre" class="block mb-2">Nombre</label>
-                                <input type="text" id="nombre" name="nombre" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-purple-500" required>
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label for="nombre" class="block mb-2 font-medium text-gray-700">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600" required>
                             </div>
-                            <div class="mb-4">
-                                <label for="email" class="block mb-2">Email</label>
-                                <input type="email" id="email" name="email" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-purple-500" required>
+                            <div>
+                                <label for="email" class="block mb-2 font-medium text-gray-700">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600" required>
                             </div>
-                            <div class="mb-4">
-                                <label for="mensaje" class="block mb-2">Mensaje</label>
-                                <textarea id="mensaje" name="mensaje"   rows="4" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-purple-500" required></textarea>
+                            <div>
+                                <label for="mensaje" class="block mb-2 font-medium text-gray-700">Mensaje</label>
+                                <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600" required></textarea>
                             </div>
-                            <button type="submit" class="bg-white text-purple-600 px-6 py-3 rounded-full hover:bg-purple-100 transition duration-300 transform hover:scale-105">Enviar mensaje</button>
+                            <button type="submit" class="w-full bg-purple-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-purple-700 transition duration-300">Enviar mensaje</button>
                         </form>
                     </div>
                 </div>
@@ -207,7 +191,7 @@
         </section>
     </main>
 
-    <footer class="bg-purple-800 text-white py-8">
+    <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
@@ -217,92 +201,79 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Servicios</h3>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#servicios" class="hover:text-purple-300 transition duration-300">Corte de Pelo</a></li>
-                        <li><a href="#servicios" class="hover:text-purple-300 transition duration-300">Baño y Limpieza</a></li>
-                        <li><a href="#servicios" class="hover:text-purple-300 transition duration-300">Cuidado de Uñas</a></li>
+                        <li><a href="#servicios" class="hover:text-purple-400 transition duration-300">Corte de Pelo</a></li>
+                        <li><a href="#servicios" class="hover:text-purple-400 transition duration-300">Baño y Limpieza</a></li>
+                        <li><a href="#servicios" class="hover:text-purple-400 transition duration-300">Cuidado de Uñas</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Redes Sociales</h3>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-2xl hover:text-purple-300 transition duration-300"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-2xl hover:text-purple-300 transition duration-300"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-2xl hover:text-purple-300 transition duration-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-purple-400 transition duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-purple-400 transition duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-purple-400 transition duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Contacto</h3>
                     <p class="text-sm">
-                        <i class="fas fa-phone-alt"></i> +123 456 7890 <br>
-                        <i class="fas fa-envelope"></i> info@lapeluderolo.com
+                        <svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        +123 456 7890
+                    </p>
+                    <p class="text-sm">
+                        <svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        info@lapeluderolo.com
                     </p>
                 </div>
             </div>
-            <div class="text-center border-t border-purple-700 mt-8 pt-4 text-sm">
+            <div class="text-center border-t border-gray-700 mt-8 pt-8 text-sm">
                 &copy; 2024 La pelu de Rolo. Todos los derechos reservados.
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
-        // Inicializar Swiper
-        var swiper = new Swiper('.swiper-container', {
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            autoplay: {
-                delay: 5000,
-            },
-        });
-
         // Menú móvil
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
-        const header = document.getElementById('header');
+        const navbar = document.getElementById('navbar');
 
-        menuToggle.addEventListener('click', function() {
+        menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            header.classList.toggle('bg-purple-700');
         });
 
-        // Cerrar menú móvil al hacer clic en un enlace
-        document.querySelectorAll('#mobile-menu a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.add('hidden');
-                header.classList.remove('bg-purple-700');
-            });
-        });
-
-        // Cambiar estilo del header al hacer scroll
-        window.addEventListener('scroll', function() {
+        // Cambiar estilo del navbar al hacer scroll
+        window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                header.classList.add('bg-purple-700', 'shadow-md');
+                navbar.classList.add('bg-white', 'shadow-md');
+                navbar.classList.remove('bg-transparent');
             } else {
-                header.classList.remove('bg-purple-700', 'shadow-md');
+                navbar.classList.remove('bg-white', 'shadow-md');
+                navbar.classList.add('bg-transparent');
             }
         });
 
-        // Animación de entrada para las secciones
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                    observer.unobserve(entry.target);
-                }
+        // Cerrar menú móvil al hacer clic en un enlace
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
             });
-        }, observerOptions);
-
-        document.querySelectorAll('section > div > *').forEach(el => {
-            observer.observe(el);
         });
 
         // Smooth scroll
@@ -313,6 +284,14 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // Animaciones con ScrollReveal
+        ScrollReveal().reveal('.fade-in-up', {
+            duration: 1000,
+            distance: '20px',
+            easing: 'cubic-bezier(0.5, 0, 0, 1)',
+            interval: 300
         });
 
         // Manejo del formulario de contacto
