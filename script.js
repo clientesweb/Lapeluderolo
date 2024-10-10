@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
         autoplay: {
             delay: 5000,
         },
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
     });
 
     // Inicializar Swiper para las reseñas
@@ -88,5 +92,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth'
             });
         });
+    });
+
+    // Animación para elementos con la clase hover-grow
+    const hoverGrowElements = document.querySelectorAll('.hover-grow');
+    hoverGrowElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            element.style.transform = 'scale(1.05)';
+        });
+        element.addEventListener('mouseleave', () => {
+            element.style.transform = 'scale(1)';
+        });
+    });
+
+    // Lazy loading para imágenes
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.add('fade-in');
+                lazyImageObserver.unobserve(img);
+            }
+        });
+    });
+
+    lazyImages.forEach(img => {
+        lazyImageObserver.observe(img);
     });
 });
