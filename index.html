@@ -15,13 +15,18 @@
             100% { transform: translateY(0px); }
         }
         .float { animation: float 3s ease-in-out infinite; }
+        .animate-fadeIn { animation: fadeIn 1s ease-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-100">
     <header class="bg-purple-600 text-white fixed w-full z-10 transition-all duration-300" id="header">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold">La pelu de Rolo</h1>
-            <nav>
+            <nav class="hidden md:block">
                 <ul class="flex space-x-4">
                     <li><a href="#inicio" class="hover:text-purple-200 transition-colors">Inicio</a></li>
                     <li><a href="#servicios" class="hover:text-purple-200 transition-colors">Servicios</a></li>
@@ -30,7 +35,19 @@
                     <li><a href="#contacto" class="hover:text-purple-200 transition-colors">Contacto</a></li>
                 </ul>
             </nav>
+            <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
+        <nav id="mobile-menu" class="hidden md:hidden bg-purple-700 p-4">
+            <ul class="space-y-2">
+                <li><a href="#inicio" class="block hover:text-purple-200 transition-colors">Inicio</a></li>
+                <li><a href="#servicios" class="block hover:text-purple-200 transition-colors">Servicios</a></li>
+                <li><a href="#galeria" class="block hover:text-purple-200 transition-colors">Galería</a></li>
+                <li><a href="#resenas" class="block hover:text-purple-200 transition-colors">Reseñas</a></li>
+                <li><a href="#contacto" class="block hover:text-purple-200 transition-colors">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -38,8 +55,8 @@
             <div class="swiper-container h-screen">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');">
-                        <div class="container mx-auto px-4 h-full flex items-center">
-                            <div class="text-white">
+                        <div class="container mx-auto px-4 h-full flex items-center justify-center">
+                            <div class="text-white text-center">
                                 <h2 class="text-5xl font-bold mb-4">Bienvenido a La pelu de Rolo</h2>
                                 <p class="text-xl mb-8">El mejor cuidado para tu mascota</p>
                                 <a href="#contacto" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition-colors">Reserva ahora</a>
@@ -47,8 +64,8 @@
                         </div>
                     </div>
                     <div class="swiper-slide bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80');">
-                        <div class="container mx-auto px-4 h-full flex items-center">
-                            <div class="text-white">
+                        <div class="container mx-auto px-4 h-full flex items-center justify-center">
+                            <div class="text-white text-center">
                                 <h2 class="text-5xl font-bold mb-4">Servicios de calidad</h2>
                                 <p class="text-xl mb-8">Cuidamos a tu mascota como si fuera nuestra</p>
                                 <a href="#servicios" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition-colors">Ver servicios</a>
@@ -57,8 +74,6 @@
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
             </div>
         </section>
 
@@ -69,17 +84,29 @@
                     <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition-transform hover:scale-105">
                         <i class="fas fa-cut text-4xl text-purple-600 mb-4"></i>
                         <h3 class="text-2xl font-semibold mb-2">Corte de pelo</h3>
-                        <p>Cortes personalizados para cada raza y estilo.</p>
+                        <p class="mb-4">Cortes personalizados para cada raza y estilo.</p>
+                        <p class="font-bold mb-4">Desde $20</p>
+                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20corte%20de%20pelo" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition-colors inline-block" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp mr-2"></i>Consultar
+                        </a>
                     </div>
                     <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition-transform hover:scale-105">
                         <i class="fas fa-bath text-4xl text-purple-600 mb-4"></i>
                         <h3 class="text-2xl font-semibold mb-2">Baño y limpieza</h3>
-                        <p>Baños relajantes y limpieza profunda.</p>
+                        <p class="mb-4">Baños relajantes y limpieza profunda.</p>
+                        <p class="font-bold mb-4">Desde $15</p>
+                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20baño%20y%20limpieza" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition-colors inline-block" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp mr-2"></i>Consultar
+                        </a>
                     </div>
                     <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition-transform hover:scale-105">
                         <i class="fas fa-paw text-4xl text-purple-600 mb-4"></i>
                         <h3 class="text-2xl font-semibold mb-2">Cuidado de uñas</h3>
-                        <p>Corte y limado de uñas para la comodidad de tu mascota.</p>
+                        <p class="mb-4">Corte y limado de uñas para la comodidad de tu mascota.</p>
+                        <p class="font-bold mb-4">Desde $10</p>
+                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20cuidado%20de%20uñas" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition-colors inline-block" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp mr-2"></i>Consultar
+                        </a>
                     </div>
                 </div>
             </div>
@@ -123,7 +150,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-pagination"></div>
+                    <div  class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
@@ -136,7 +163,7 @@
                         <h3 class="text-2xl font-semibold mb-4">Información de contacto</h3>
                         <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Calle Principal 123, Ciudad</p>
                         <p class="mb-2"><i class="fas fa-phone mr-2"></i> +1 234 567 890</p>
-                        <p class="mb-2"><i class="fas fa-envelope mr-2"></i> info@lapeluderolo.com</p>
+                        <p class="mb-2"><i class="fas fa-envelope mr-2"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="127b7c747d527e7362777e677677607d7e7d3c717d7f">[email&#160;protected]</a></p>
                         <div class="mt-6">
                             <h4 class="text-xl font-semibold mb-2">Síguenos en redes sociales</h4>
                             <div class="flex space-x-4">
@@ -162,7 +189,6 @@
                             </div>
                             <button type="submit" class="bg-white text-purple-600 px-6 py-3 rounded-full hover:bg-purple-100 transition-colors">Enviar mensaje</button>
                         </form>
-                    
                     </div>
                 </div>
             </div>
@@ -190,6 +216,6 @@
         <i class="fab fa-whatsapp text-2xl"></i>
     </a>
 
-    <script src="script.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
 </body>
 </html>
