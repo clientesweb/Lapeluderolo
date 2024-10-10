@@ -1,13 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializar Swiper para el hero slider
-    new Swiper('.swiper-container', {
+    new Swiper('#inicio .swiper-container', {
         loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
         pagination: {
-            el: '.swiper-pagination',
+            el: '#inicio .swiper-pagination',
             clickable: true,
         },
         autoplay: {
@@ -66,5 +62,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     sections.forEach(section => {
         sectionObserver.observe(section);
+    });
+
+    // Menú hamburguesa
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Cerrar menú móvil al hacer clic en un enlace
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+
+    // Smooth scroll para los enlaces de navegación
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
     });
 });
