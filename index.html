@@ -8,6 +8,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
         .swiper-container {
             width: 100%;
             height: 100vh;
@@ -26,20 +39,41 @@
             height: 100%;
             object-fit: cover;
         }
+        @media (max-width: 640px) {
+            .swiper-container {
+                height: 50vh;
+            }
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-100">
-    <header class="bg-purple-600 text-white fixed w-full z-10">
+    <header class="bg-purple-600 text-white fixed w-full z-10 transition-all duration-300" id="header">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center">
                 <img src="img/logo.png" alt="Logo de La pelu de Rolo" class="h-10 w-10 mr-3">
                 <a href="#" class="text-2xl font-bold">La pelu de Rolo</a>
             </div>
-            <div class="hidden md:flex items-center space-x-4">
-                <a href="#inicio" class="hover:text-purple-200">Inicio</a>
-                <a href="#servicios" class="hover:text-purple-200">Servicios</a>
-                <a href="#galeria" class="hover:text-purple-200">Galería</a>
-                <a href="#contacto" class="hover:text-purple-200">Contacto</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#inicio" class="nav-link hover:text-purple-200 transition-colors duration-300">Inicio</a>
+                <a href="#servicios" class="nav-link hover:text-purple-200 transition-colors duration-300">Servicios</a>
+                <a href="#galeria" class="nav-link hover:text-purple-200 transition-colors duration-300">Galería</a>
+                <a href="#contacto" class="nav-link hover:text-purple-200 transition-colors duration-300">Contacto</a>
             </div>
             <div class="md:hidden">
                 <button id="menu-toggle" class="text-white focus:outline-none">
@@ -48,34 +82,34 @@
             </div>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden bg-purple-700 p-4">
-            <a href="#inicio" class="block py-2 text-white hover:text-purple-200">Inicio</a>
-            <a href="#servicios" class="block py-2 text-white hover:text-purple-200">Servicios</a>
-            <a href="#galeria" class="block py-2 text-white hover:text-purple-200">Galería</a>
-            <a href="#contacto" class="block py-2 text-white hover:text-purple-200">Contacto</a>
+            <a href="#inicio" class="block py-2 text-white hover:text-purple-200 transition-colors duration-300">Inicio</a>
+            <a href="#servicios" class="block py-2 text-white hover:text-purple-200 transition-colors duration-300">Servicios</a>
+            <a href="#galeria" class="block py-2 text-white hover:text-purple-200 transition-colors duration-300">Galería</a>
+            <a href="#contacto" class="block py-2 text-white hover:text-purple-200 transition-colors duration-300">Contacto</a>
         </div>
     </header>
 
     <main>
-        <section id="inicio" class="pt-16">
+        <section id="inicio" class="pt-16 md:pt-0">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="img/slide1.jpg" alt="Perro feliz después de un corte">
+                        <img src="img/slide1.jpg" alt="Perro feliz después de un corte" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                            <div class="text-center text-white">
-                                <h1 class="text-4xl md:text-6xl font-bold mb-4">Bienvenido a La pelu de Rolo</h1>
-                                <p class="text-xl md:text-2xl mb-8">El mejor cuidado para tu mascota</p>
-                                <a href="#contacto" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300">Reserva ahora</a>
+                            <div class="text-center text-white px-4">
+                                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 fade-in-up">Bienvenido a La pelu de Rolo</h1>
+                                <p class="text-lg md:text-xl lg:text-2xl mb-8 fade-in-up">El mejor cuidado para tu mascota</p>
+                                <a href="#contacto" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300 fade-in-up inline-block">Reserva ahora</a>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/slide2.jpg" alt="Perro recibiendo un baño">
+                        <img src="img/slide2.jpg" alt="Perro recibiendo un baño" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                            <div class="text-center text-white">
-                                <h2 class="text-4xl md:text-6xl font-bold mb-4">Servicios de calidad</h2>
-                                <p class="text-xl md:text-2xl mb-8">Cuidamos a tu mascota como si fuera nuestra</p>
-                                <a href="#servicios" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300">Ver servicios</a>
+                            <div class="text-center text-white px-4">
+                                <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 fade-in-up">Servicios de calidad</h2>
+                                <p class="text-lg md:text-xl lg:text-2xl mb-8 fade-in-up">Cuidamos a tu mascota como si fuera nuestra</p>
+                                <a href="#servicios" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300 fade-in-up inline-block">Ver servicios</a>
                             </div>
                         </div>
                     </div>
@@ -88,7 +122,7 @@
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl transform hover:-translate-y-2">
                         <i class="fas fa-cut text-4xl text-purple-600 mb-4"></i>
                         <h3 class="text-xl font-semibold mb-2">Corte de pelo</h3>
                         <p class="mb-4">Cortes personalizados para cada raza y estilo.</p>
@@ -97,7 +131,7 @@
                             <i class="fab fa-whatsapp mr-2"></i>Consultar
                         </a>
                     </div>
-                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl transform hover:-translate-y-2">
                         <i class="fas fa-bath text-4xl text-purple-600 mb-4"></i>
                         <h3 class="text-xl font-semibold mb-2">Baño y limpieza</h3>
                         <p class="mb-4">Baños relajantes y limpieza profunda.</p>
@@ -106,7 +140,7 @@
                             <i class="fab fa-whatsapp mr-2"></i>Consultar
                         </a>
                     </div>
-                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="bg-purple-100 p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl transform hover:-translate-y-2">
                         <i class="fas fa-paw text-4xl text-purple-600 mb-4"></i>
                         <h3 class="text-xl font-semibold mb-2">Cuidado de uñas</h3>
                         <p class="mb-4">Corte y limado de uñas para la comodidad de tu mascota.</p>
@@ -123,12 +157,12 @@
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Galería de trabajos</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    <img src="img/galeria1.jpg" alt="Perro 1" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                    <img src="img/galeria2.jpg" alt="Perro 2" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                    <img src="img/galeria3.jpg" alt="Perro 3" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                    <img src="img/galeria4.jpg" alt="Perro 4" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                    <img src="img/galeria5.jpg" alt="Perro 5" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                    <img src="img/galeria6.jpg" alt="Perro 6" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="img/galeria1.jpg" alt="Perro 1" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
+                    <img src="img/galeria2.jpg" alt="Perro 2" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
+                    <img src="img/galeria3.jpg" alt="Perro 3" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
+                    <img src="img/galeria4.jpg" alt="Perro 4" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
+                    <img src="img/galeria5.jpg" alt="Perro 5" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
+                    <img src="img/galeria6.jpg" alt="Perro 6" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
                 </div>
             </div>
         </section>
@@ -152,7 +186,7 @@
                         </div>
                     </div>
                     <div>
-                        <form>
+                        <form id="contact-form">
                             <div class="mb-4">
                                 <label for="nombre" class="block mb-2">Nombre</label>
                                 <input type="text" id="nombre" name="nombre" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-purple-500" required>
@@ -163,9 +197,9 @@
                             </div>
                             <div class="mb-4">
                                 <label for="mensaje" class="block mb-2">Mensaje</label>
-                                <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-purple-500" required></textarea>
+                                <textarea id="mensaje" name="mensaje"   rows="4" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-purple-500" required></textarea>
                             </div>
-                            <button type="submit" class="bg-white text-purple-600 px-6 py-3 rounded-full hover:bg-purple-100 transition duration-300">Enviar mensaje</button>
+                            <button type="submit" class="bg-white text-purple-600 px-6 py-3 rounded-full hover:bg-purple-100 transition duration-300 transform hover:scale-105">Enviar mensaje</button>
                         </form>
                     </div>
                 </div>
@@ -183,15 +217,15 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Servicios</h3>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#servicios" class="hover:text-purple-300">Corte de Pelo</a></li>
-                        <li><a href="#servicios" class="hover:text-purple-300">Baño y Limpieza</a></li>
-                        <li><a href="#servicios" class="hover:text-purple-300">Cuidado de Uñas</a></li>
+                        <li><a href="#servicios" class="hover:text-purple-300 transition duration-300">Corte de Pelo</a></li>
+                        <li><a href="#servicios" class="hover:text-purple-300 transition duration-300">Baño y Limpieza</a></li>
+                        <li><a href="#servicios" class="hover:text-purple-300 transition duration-300">Cuidado de Uñas</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Redes Sociales</h3>
                     <div class="flex space-x-4">
-                        <a href="#"   class="text-2xl hover:text-purple-300 transition duration-300"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl hover:text-purple-300 transition duration-300"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="text-2xl hover:text-purple-300 transition duration-300"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="text-2xl hover:text-purple-300 transition duration-300"><i class="fab fa-twitter"></i></a>
                     </div>
@@ -225,15 +259,50 @@
         });
 
         // Menú móvil
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const header = document.getElementById('header');
+
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            header.classList.toggle('bg-purple-700');
         });
 
         // Cerrar menú móvil al hacer clic en un enlace
         document.querySelectorAll('#mobile-menu a').forEach(function(link) {
             link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.add('hidden');
+                mobileMenu.classList.add('hidden');
+                header.classList.remove('bg-purple-700');
             });
+        });
+
+        // Cambiar estilo del header al hacer scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-purple-700', 'shadow-md');
+            } else {
+                header.classList.remove('bg-purple-700', 'shadow-md');
+            }
+        });
+
+        // Animación de entrada para las secciones
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div > *').forEach(el => {
+            observer.observe(el);
         });
 
         // Smooth scroll
@@ -244,6 +313,13 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // Manejo del formulario de contacto
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por tu mensaje. Te contactaremos pronto!');
+            this.reset();
         });
     </script>
 </body>
