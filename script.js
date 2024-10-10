@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Inicializar Swiper para el hero slider
     new Swiper('#inicio .swiper-container', {
         loop: true,
@@ -37,13 +37,21 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 
-    // Efecto de scroll para el header
+    // Efecto de scroll para el header con requestAnimationFrame para optimización
     const header = document.getElementById('header');
+    let isScrolling = false;
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            header.classList.add('bg-purple-700', 'shadow-md');
-        } else {
-            header.classList.remove('bg-purple-700', 'shadow-md');
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                if (window.scrollY > 100) {
+                    header.classList.add('bg-purple-700', 'shadow-md');
+                } else {
+                    header.classList.remove('bg-purple-700', 'shadow-md');
+                }
+                isScrolling = false;
+            });
+            isScrolling = true;
         }
     });
 
@@ -51,8 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.1
+        rootMargin: '0px 0px -10% 0px', // Ajuste para mejor percepción
+        threshold: 0.25 // Solo cuando el 25% de la sección está visible
     };
 
     const sectionObserver = new IntersectionObserver((entries, observer) => {
@@ -73,7 +81,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobile-menu');
 
     menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        if (!isHidden) {
+            mobileMenu.querySelector('a').focus(); // Foco en el primer enlace del menú
+        } else {
+            menuToggle.focus(); // Volver el foco al botón
+        }
     });
 
     // Cerrar menú móvil al hacer clic en un enlace
@@ -84,26 +97,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Smooth scroll para los enlaces de navegación
+    // Smooth scroll para los enlaces de navegación con debounce
+    let scrolling = false;
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            if (!scrolling) {
+                scrolling = true;
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                setTimeout(() => scrolling = false, 1000); // 1 segundo de debounce
+            }
         });
     });
 
-    // Animación para elementos con la clase hover-grow
-    const hoverGrowElements = document.querySelectorAll('.hover-grow');
-    hoverGrowElements.forEach(element => {
-        element.addEventListener('mouseenter', () => {
-            element.style.transform = 'scale(1.05)';
+    // Animación para elementos con la clase hover-grow, solo en dispositivos con hover
+    if (window.matchMedia("(hover: hover)").matches) {
+        const hoverGrowElements = document.querySelectorAll('.hover-grow');
+        hoverGrowElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                element.style.transform = 'scale(1.05)';
+            });
+            element.addEventListener('mouseleave', () => {
+                element.style.transform = 'scale(1)';
+            });
         });
-        element.addEventListener('mouseleave', () => {
-            element.style.transform = 'scale(1)';
-        });
-    });
+    }
 
     // Lazy loading para imágenes
     const lazyImages = document.querySelectorAll('img[data-src]');
