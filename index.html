@@ -7,7 +7,83 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #8B5CF6;
+            --secondary-color: #D1D5DB;
+            --accent-color: #10B981;
+        }
+        .bg-primary { background-color: var(--primary-color); }
+        .text-primary { color: var(--primary-color); }
+        .border-primary { border-color: var(--primary-color); }
+        .bg-secondary { background-color: var(--secondary-color); }
+        .text-secondary { color: var(--secondary-color); }
+        .bg-accent { background-color: var(--accent-color); }
+        .text-accent { color: var(--accent-color); }
+        
+        /* Ajuste para el hero slider responsivo */
+        .hero-slider {
+            height: 60vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        /* Ajustes para los sliders de ofertas y anuncios */
+        .offer-slider, .ad-slider {
+            height: auto;
+            min-height: 40px;
+            width: 100%;
+        }
+        
+        /* Ajustes para las imágenes de la galería */
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Manejo de overflow */
+        body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+        
+        /* Ajustes para el footer */
+        .footer-logo {
+            max-width: 100px;
+            height: auto;
+        }
+        
+        /* Animaciones y transiciones */
+        .gallery-item {
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .service-card {
+            transition: all 0.3s ease-in-out;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Ajustes de fade-in */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20vh);
+            visibility: hidden;
+            transition: opacity 1200ms ease-out, transform 600ms ease-out,
+                        visibility 1200ms ease-out;
+            will-change: opacity, transform, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+        }
+    </style>
 </head>
 <body class="font-sans bg-gray-100">
     <!-- Top Banner for Offers -->
@@ -257,6 +333,67 @@
     </footer>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        // Inicialización de Swiper para todos los sliders
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hero Slider
+            new Swiper('.hero-slider', {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+
+            // Offer Slider
+            new Swiper('.offer-slider', {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                },
+            });
+
+            // Ad Slider
+            new Swiper('.ad-slider', {
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                },
+            });
+
+            // Menú móvil
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Fade-in sections
+            const observerOptions = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
