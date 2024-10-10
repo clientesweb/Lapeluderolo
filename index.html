@@ -7,52 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <style>
-        :root {
-            --primary-color: #8B5CF6;
-            --secondary-color: #D1D5DB;
-            --accent-color: #10B981;
-        }
-        .bg-primary { background-color: var(--primary-color); }
-        .text-primary { color: var(--primary-color); }
-        .border-primary { border-color: var(--primary-color); }
-        .bg-secondary { background-color: var(--secondary-color); }
-        .text-secondary { color: var(--secondary-color); }
-        .bg-accent { background-color: var(--accent-color); }
-        .text-accent { color: var(--accent-color); }
-        .hero-slider {
-            height: 60vh;
-        }
-        .offer-slider, .ad-slider {
-            height: 40px;
-        }
-        .gallery-item {
-            transition: transform 0.3s ease-in-out;
-        }
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-        .service-card {
-            transition: all 0.3s ease-in-out;
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20vh);
-            visibility: hidden;
-            transition: opacity 1200ms ease-out, transform 600ms ease-out,
-                        visibility 1200ms ease-out;
-            will-change: opacity, transform, visibility;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: none;
-            visibility: visible;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="font-sans bg-gray-100">
     <!-- Top Banner for Offers -->
@@ -265,6 +220,7 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="text-center md:text-left">
+                    <img src="logo.png" alt="La pelu de Rolo Logo" class="footer-logo mx-auto md:mx-0 mb-4">
                     <h3 class="text-xl font-bold mb-4">La pelu de Rolo</h3>
                     <p class="text-sm">El mejor cuidado para tu mascota con servicios de calidad garantizados.</p>
                 </div>
@@ -301,84 +257,6 @@
     </footer>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        // Hero Slider
-        new Swiper('.hero-slider', {
-            loop: true,
-            autoplay: {
-                delay: 5000,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
-
-        // Offer Slider
-        new Swiper('.offer-slider', {
-            loop: true,
-            autoplay: {
-                delay: 3000,
-            },
-            direction: 'horizontal',
-        });
-
-        // Ad Slider
-        new Swiper('.ad-slider', {
-            loop: true,
-            autoplay: {
-                delay: 4000,
-            },
-            direction: 'horizontal',
-        });
-
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Smooth Scroll for Navigation Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Form Submission
-        const contactForm = document.getElementById('contact-form');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-            contactForm.reset();
-        });
-
-        // Scroll Animation
-        const faders = document.querySelectorAll('.fade-in-section');
-        const appearOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -100px 0px"
-        };
-
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.classList.add('is-visible');
-                    appearOnScroll.unobserve(entry.target);
-                }
-            });
-        }, appearOptions);
-
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
