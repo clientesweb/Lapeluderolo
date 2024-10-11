@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La pelu de Rolo - Peluquería Canina de Lujo</title>
+    <meta name="description" content="La pelu de Rolo ofrece servicios de peluquería canina de lujo en Buenos Aires. Corte de pelo, baño, y cuidado de uñas para tu mascota.">
+    <meta name="keywords" content="peluquería canina, corte de pelo para perros, baño de mascotas, cuidado de uñas para perros, Buenos Aires">
+    <link rel="canonical" href="https://www.lapeluderolo.com">
+    <meta property="og:title" content="La pelu de Rolo - Peluquería Canina de Lujo">
+    <meta property="og:description" content="Servicios de peluquería canina de lujo en Buenos Aires. Corte de pelo, baño, y cuidado de uñas para tu mascota.">
+    <meta property="og:image" content="https://www.lapeluderolo.com/og-image.jpg">
+    <meta property="og:url" content="https://www.lapeluderolo.com">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="/favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -83,11 +92,35 @@
             transform: none;
             visibility: visible;
         }
+
+        /* Estilos para el botón de WhatsApp flotante */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-100">
     <!-- Top Banner for Offers -->
-    <div class="bg-primary text-white py-2">
+    <div class="bg-primary text-white py-2 w-full">
         <div class="container mx-auto">
             <div class="swiper-container offer-slider">
                 <div class="swiper-wrapper">
@@ -111,6 +144,7 @@
                     <a href="#inicio" class="text-gray-700 hover:text-primary">Inicio</a>
                     <a href="#servicios" class="text-gray-700 hover:text-primary">Servicios</a>
                     <a href="#galeria" class="text-gray-700 hover:text-primary">Galería</a>
+                    <a href="#testimonios" class="text-gray-700 hover:text-primary">Testimonios</a>
                     <a href="#contacto" class="text-gray-700 hover:text-primary">Contacto</a>
                 </div>
                 <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary focus:outline-none">
@@ -122,6 +156,7 @@
             <a href="#inicio" class="block py-2 px-4 text-center text-gray-700 hover:bg-primary hover:text-white">Inicio</a>
             <a href="#servicios" class="block py-2 px-4 text-center text-gray-700 hover:bg-primary hover:text-white">Servicios</a>
             <a href="#galeria" class="block py-2 px-4 text-center text-gray-700 hover:bg-primary hover:text-white">Galería</a>
+            <a href="#testimonios" class="block py-2 px-4 text-center text-gray-700 hover:bg-primary hover:text-white">Testimonios</a>
             <a href="#contacto" class="block py-2 px-4 text-center text-gray-700 hover:bg-primary hover:text-white">Contacto</a>
         </div>
     </header>
@@ -191,7 +226,7 @@
                         </div>
                     </div>
                     <div class="service-card bg-gray-50 rounded-lg p-6 shadow-md">
-                        <i class="fas fa-paw text-4xl text-primary mb-4 flex justify-center"></i>
+                        <i class="fas fa-paw text-4xl text-primary mb-4  flex justify-center"></i>
                         <h3 class="text-xl font-semibold mb-2 text-center">Cuidado de uñas</h3>
                         <p class="text-gray-600 mb-4 text-center">Corte y limado de uñas para la comodidad de tu mascota.</p>
                         <p class="font-bold text-primary mb-4 text-center">Desde $10</p>
@@ -217,7 +252,7 @@
                         <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Perro 2" class="w-full h-64 object-cover rounded-lg shadow-md">
                     </div>
                     <div class="gallery-item">
-                        <img   src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Perro 3" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        <img src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Perro 3" class="w-full h-64 object-cover rounded-lg shadow-md">
                     </div>
                     <div class="gallery-item">
                         <img src="https://images.unsplash.com/photo-1605244863941-3a3ed921c2b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 4" class="w-full h-64 object-cover rounded-lg shadow-md">
@@ -232,8 +267,38 @@
             </div>
         </section>
 
+        <!-- Testimonials Section -->
+        <section id="testimonios" class="py-20 bg-white fade-in-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Lo que dicen nuestros clientes</h2>
+                <div class="swiper-container testimonial-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                                <p class="text-gray-600 mb-4">"Excelente servicio. Mi perro siempre sale feliz y hermoso. ¡Altamente recomendado!"</p>
+                                <p class="font-bold">- María G.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                                <p class="text-gray-600 mb-4">"El personal es muy amable y profesional. Mi gato nunca había quedado tan lindo."</p>
+                                <p class="font-bold">- Carlos R.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                                <p class="text-gray-600 mb-4">"Precios justos y un trabajo impecable. Definitivamente volveré."</p>
+                                <p class="font-bold">- Laura M.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section with Map -->
-        <section id="contacto" class="py-20 bg-white fade-in-section">
+        <section id="contacto" class="py-20 bg-gray-100 fade-in-section">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Contáctanos</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -313,7 +378,7 @@
                     <p class="text-sm">
                         <i class="fas fa-map-marker-alt mr-2"></i> Av. Rivadavia 5000, CABA<br>
                         <i class="fas fa-phone mr-2"></i> +54 11 1234-5678<br>
-                        <i class="fas fa-envelope mr-2"></i> info@lapeluderolo.com
+                        <i class="fas fa-envelope mr-2"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c4adaaa2ab84a8a5b4a1a8b1a0a1b6aba8abeaa7aba9">[email&#160;protected]</a>
                     </p>
                 </div>
                 <div class="text-center md:text-left">
@@ -332,7 +397,12 @@
         </div>
     </footer>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         // Inicialización de Swiper para todos los sliders
         document.addEventListener('DOMContentLoaded', function() {
@@ -361,6 +431,28 @@
                 loop: true,
                 autoplay: {
                     delay: 4000,
+                },
+            });
+
+            // Testimonial Slider
+            new Swiper('.testimonial-slider', {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                slidesPerView: 1,
+                spaceBetween: 30,
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
                 },
             });
 
