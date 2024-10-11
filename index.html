@@ -116,6 +116,35 @@
         .whatsapp-float:hover {
             background-color: #128C7E;
         }
+
+        /* Estilos para el slider de testimonios */
+        .testimonial-slider {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Estilos para los filtros de la galería */
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .gallery-filter button {
+            padding: 5px 15px;
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .gallery-filter button.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-100">
@@ -217,7 +246,7 @@
                     <div class="service-card bg-gray-50 rounded-lg p-6 shadow-md">
                         <i class="fas fa-bath text-4xl text-primary mb-4 flex justify-center"></i>
                         <h3 class="text-xl font-semibold mb-2 text-center">Baño y limpieza</h3>
-                        <p class="text-gray-600 mb-4 text-center">Baños relajantes y limpieza profunda.</p>
+                        <p class="text-gray-600 mb-4  text-center">Baños relajantes y limpieza profunda.</p>
                         <p class="font-bold text-primary mb-4 text-center">Desde $15</p>
                         <div class="text-center">
                             <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20servicio%20de%20baño%20y%20limpieza" class="inline-block bg-accent text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition duration-300">
@@ -226,7 +255,7 @@
                         </div>
                     </div>
                     <div class="service-card bg-gray-50 rounded-lg p-6 shadow-md">
-                        <i class="fas fa-paw text-4xl text-primary mb-4  flex justify-center"></i>
+                        <i class="fas fa-paw text-4xl text-primary mb-4 flex justify-center"></i>
                         <h3 class="text-xl font-semibold mb-2 text-center">Cuidado de uñas</h3>
                         <p class="text-gray-600 mb-4 text-center">Corte y limado de uñas para la comodidad de tu mascota.</p>
                         <p class="font-bold text-primary mb-4 text-center">Desde $10</p>
@@ -244,24 +273,30 @@
         <section id="galeria" class="py-20 bg-gray-100 fade-in-section">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Nuestra Galería</h2>
+                <div class="gallery-filter mb-8">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="corte">Corte de pelo</button>
+                    <button class="filter-btn" data-filter="bano">Baño y limpieza</button>
+                    <button class="filter-btn" data-filter="unas">Cuidado de uñas</button>
+                </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" alt="Perro 1" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <div class="gallery-item" data-category="corte">
+                        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" alt="Corte de pelo 1" class="w-full h-64 object-cover rounded-lg shadow-md">
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Perro 2" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <div class="gallery-item" data-category="bano">
+                        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Baño y limpieza 1" class="w-full h-64 object-cover rounded-lg shadow-md">
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Perro 3" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <div class="gallery-item" data-category="unas">
+                        <img src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Cuidado de uñas 1" class="w-full h-64 object-cover rounded-lg shadow-md">
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1605244863941-3a3ed921c2b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 4" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <div class="gallery-item" data-category="corte">
+                        <img src="https://images.unsplash.com/photo-1605244863941-3a3ed921c2b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Corte de pelo 2" class="w-full h-64 object-cover rounded-lg shadow-md">
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1635499829675-35cd8944fa7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 5" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <div class="gallery-item" data-category="bano">
+                        <img src="https://images.unsplash.com/photo-1635499829675-35cd8944fa7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Baño y limpieza 2" class="w-full h-64 object-cover rounded-lg shadow-md">
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1626316663963-f6b3bba3b25d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Perro 6" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <div class="gallery-item" data-category="unas">
+                        <img src="https://images.unsplash.com/photo-1626316663963-f6b3bba3b25d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cuidado de uñas 2" class="w-full h-64 object-cover rounded-lg shadow-md">
                     </div>
                 </div>
             </div>
@@ -484,6 +519,27 @@
 
             document.querySelectorAll('.fade-in-section').forEach(section => {
                 observer.observe(section);
+            });
+
+            // Filtro de galería
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+                    
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
             });
         });
     </script>
